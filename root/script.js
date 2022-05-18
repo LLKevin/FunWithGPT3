@@ -54,7 +54,7 @@ function createResponse(prompt, response){
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
+          Authorization: `Bearer ${api_key}`,
         },
         body: JSON.stringify(data),
        })
