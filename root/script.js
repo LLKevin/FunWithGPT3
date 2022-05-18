@@ -11,6 +11,7 @@ async function handleSubmit(prompt){
     let api_key   = await environmentVariable();
     let response  = await callApi(prompt.value, api_key)
     createResponse(prompt.value, response);
+
 }
 
 function createResponse(prompt, response){
