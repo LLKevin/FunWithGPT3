@@ -16,7 +16,7 @@ async function handleSubmit(prompt){
 
 function createResponse(prompt, response){
 
-   let response_div = document.createElement("div");
+   let response_div = document.createElement("article");
    let response_container = document.getElementById("response_container");
 
    let prompt_para = document.createElement('p');

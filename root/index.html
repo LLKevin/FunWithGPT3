@@ -8,18 +8,18 @@
     <title>Fun with GPT-3</title>
 </head>
 <body>
-    <div id="top-level-container">
-        <div id="prompt_container">
+    <main id="top-level-container">
+        <section id="prompt_container">
             <h1>Fun with AI</h1>
-            <form id="frm_prompt">
+            <form id="frm_prompt" name="prompt form">
                 <label for="txtprompt">Enter Prompt</label>
                 <textarea name="prompt" id="txtprompt"></textarea>
-                <input type="submit" id="btn_submit" value="Submit">
+                <button type="submit" id="btn_submit" name="submit" value="Submit">Submit</button>
             </form>
-        </div>
+        </section>
         <h2>Responses</h2>
-        <div id="response_container"></div>
-    </div>
+        <section id="response_container"></section>
+    </main>
 </body>
 <script src="./script.js"></script>
 </html>
