@@ -1,5 +1,4 @@
 
-
 document.getElementById('frm_prompt').addEventListener("submit",   function(event){
     prompt = document.getElementById('txtprompt');
     if(prompt.value != ""){
@@ -40,6 +39,7 @@ function createResponse(prompt, response){
 }
 
  async function callApi(prompt, api_key){
+
     let api_response = "";
     const data = {
         prompt: prompt,
@@ -59,10 +59,11 @@ function createResponse(prompt, response){
         body: JSON.stringify(data),
        })
        .then(res  => res.json())
-       .then(data => api_response = data.choices[0].text
-       );
+       .then(data => {
+        api_response = data.choices[0].text
+       });
 
-       return api_response
+       return api_response;
 }
 
 function environmentVariable(){
