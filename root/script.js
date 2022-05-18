@@ -35,7 +35,7 @@ function createResponse(prompt, response){
    response_div.append(prompt_para)
    response_div.append(response_title)
    response_div.append(response_para)
-   response_container.append(response_div);
+   response_container.prepend(response_div);
    
 }
 
