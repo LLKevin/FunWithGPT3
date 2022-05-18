@@ -8,7 +8,7 @@ document.getElementById('frm_prompt').addEventListener("submit",   function(even
 })
 
 async function handleSubmit(prompt){
-    let api_key = environmentVariable();
+    let api_key   = await environmentVariable();
     let response  = await callApi(prompt.value, api_key)
     createResponse(prompt.value, response);
 }
@@ -40,6 +40,7 @@ function createResponse(prompt, response){
 
  async function callApi(prompt, api_key){
 
+    console.log(typeof(api_key))
     let api_response = "";
     const data = {
         prompt: prompt,
@@ -57,17 +58,15 @@ function createResponse(prompt, response){
           Authorization: `Bearer ${api_key}`,
         },
         body: JSON.stringify(data),
-       })
-       .then(res  => res.json())
-       .then(data => {
-        api_response = data.choices[0].text
-       });
+       }).then(res  => res.json())
 
+       api_response = await response.choices[0].text;
        return api_response;
 }
 
 async function environmentVariable(){
-    const  response = await fetch("../netlify/functions/api")
+    const response = await fetch("/.netlify/functions/api")
     .then(response => response.json())
-    return response;
+
+    return response.api;
 }
