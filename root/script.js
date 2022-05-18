@@ -66,12 +66,8 @@ function createResponse(prompt, response){
        return api_response;
 }
 
-function environmentVariable(){
-    let serverURL;
-    fetch(".netlify/functions/api")
+async function environmentVariable(){
+    const  response = await fetch("../netlify/functions/api")
     .then(response => response.json())
-    .then(json =>{
-        serverURL = json.api;
-    })
-    return serverURL;
+    return response;
 }
