@@ -1,4 +1,5 @@
 
+
 document.getElementById('frm_prompt').addEventListener("submit",   function(event){
     prompt = document.getElementById('txtprompt');
     if(prompt.value != ""){
@@ -7,16 +8,13 @@ document.getElementById('frm_prompt').addEventListener("submit",   function(even
     event.preventDefault();
 })
 
-
 async function handleSubmit(prompt){
-    let response  = await callApi(prompt.value)
+    let api_key = environmentVariable();
+    let response  = await callApi(prompt.value, api_key)
     createResponse(prompt.value, response);
 }
 
-
-
 function createResponse(prompt, response){
-
 
    let response_div = document.createElement("div");
    let response_container = document.getElementById("response_container");
@@ -41,7 +39,7 @@ function createResponse(prompt, response){
    
 }
 
- async function callApi(prompt){
+ async function callApi(prompt, api_key){
     let api_response = "";
     const data = {
         prompt: prompt,
@@ -67,3 +65,12 @@ function createResponse(prompt, response){
        return api_response
 }
 
+function environmentVariable(){
+    let serverURL;
+    fetch(".netlify/functions/api")
+    .then(response => response.json())
+    .then(json =>{
+        serverURL = json.api;
+    })
+    return serverURL;
+}
