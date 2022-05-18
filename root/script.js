@@ -40,7 +40,6 @@ function createResponse(prompt, response){
 
  async function callApi(prompt, api_key){
 
-    console.log(typeof(api_key))
     let api_response = "";
     const data = {
         prompt: prompt,
@@ -67,6 +66,5 @@ function createResponse(prompt, response){
 async function environmentVariable(){
     const response = await fetch("/.netlify/functions/api")
     .then(response => response.json())
-
     return response.api;
 }
