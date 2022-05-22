@@ -14,22 +14,15 @@ async function handleSubmit(prompt){
 
 }
 
-function createResponse(prompt, response){
+ function createResponse(prompt, response){
 
    let response_div = document.createElement("article");
    let response_container = document.getElementById("response_container");
 
-   let prompt_para = document.createElement('p');
-   prompt_para.innerHTML = prompt;
-   
-   let prompt_title = document.createElement('h3');
-   prompt_title.innerHTML = "Prompt:";
-
-   let response_title = document.createElement('h3');
-   response_title.innerHTML = "Response:";
-
-   let response_para = document.createElement('p');
-   response_para.innerHTML = response;
+   let prompt_para =  createElement_function(prompt, "p");
+   let prompt_title =  createElement_function("Prompt:", "h3");
+   let response_title =  createElement_function("Response:", "h3")
+   let response_para =  createElement_function(response, "p")
 
    response_div.append(prompt_title)
    response_div.append(prompt_para)
@@ -38,6 +31,12 @@ function createResponse(prompt, response){
    response_container.prepend(response_div);
    
 }
+
+function createElement_function (data, elementType){
+    let dom_element = document.createElement(elementType);
+    dom_element.innerHTML = data;
+    return dom_element;
+};
 
  async function callApi(prompt, api_key){
 

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +18,15 @@
             <form id="frm_prompt" name="prompt form">
                 <label for="txtprompt">Enter Prompt</label>
                 <textarea name="prompt" id="txtprompt"></textarea>
+                <div id="model_wrapper">
+                    <label for="models" >Choose a Model:</label>
+                    <select name="models" id="models">
+                        <option value="text-davinci-002">text-davinci-002</option>
+                        <option value="text-curie-001" selected>text-curie-001</option>
+                        <option value="text-babbage-001">text-babbage-001</option>
+                        <option value="text-ada-001">text-ada-001</option>
+                    </select>
+                </div>
                 <button type="submit" id="btn_submit" name="submit" value="Submit">Submit</button>
             </form>
         </section>

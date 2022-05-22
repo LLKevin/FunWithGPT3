@@ -1,4 +1,9 @@
 
+html{
+    background-color: li;
+    font-family: 'Roboto', sans-serif;
+}
+
 #top-level-container{
     display: flex;
     align-items: center;
@@ -12,24 +17,40 @@
     flex-direction: column;
 }
 #txtprompt{
- width: 50vw;
- height: 30vh;
+    height: 30vh;
+    font-size: 18px;
+    width: 50vw;
 }
 #btn_submit{
     align-self: flex-end;
-    background-color:blue;
-    color: white;
+    background-color:lightblue;
+    border-radius: 10px;
+    color: black;
     height: 6vh;
+    letter-spacing: 0.3em;
     min-width: 100px;
     margin-top: 10px;
     width: 8vw;
 }
 #btn_submit:hover{
     cursor: pointer;
-    background-color: darkblue;
     font-style: italic;
 }
-
+#model_wrapper{
+    display: flex;
+    flex-direction: column;
+}
+#model_wrapper > * {
+    margin-top: 20px;
+}
+#model_wrapper select {
+    height: 5vh;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    min-width: 150px;
+    text-align: center;
+    width: 15vw;
+}
 #response_container article{
     display: flex;
     flex-direction: column;
