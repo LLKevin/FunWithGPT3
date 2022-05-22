@@ -1,15 +1,16 @@
 
 document.getElementById('frm_prompt').addEventListener("submit",   function(event){
-    prompt = document.getElementById('txtprompt');
+    let prompt = document.getElementById('txtprompt');
+    let model = document.getElementById('models');
     if(prompt.value != ""){
-        handleSubmit(prompt);
+        handleSubmit(prompt, model);
     }
     event.preventDefault();
 })
 
-async function handleSubmit(prompt){
+async function handleSubmit(prompt, model){
     let api_key   = await environmentVariable();
-    let response  = await callApi(prompt.value, api_key)
+    let response  = await callApi(prompt.value, model.value, api_key)
     createResponse(prompt.value, response);
 
 }
@@ -38,7 +39,7 @@ function createElement_function (data, elementType){
     return dom_element;
 };
 
- async function callApi(prompt, api_key){
+ async function callApi(prompt,model, api_key){
 
     let api_response = "";
     const data = {
@@ -50,7 +51,7 @@ function createElement_function (data, elementType){
         presence_penalty: 0.0,
        };
         
-       const response = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+       const response = await fetch(`https://api.openai.com/v1/engines/${model}/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
