@@ -12,25 +12,23 @@ async function handleSubmit(prompt, model){
     let api_key   = await environmentVariable();
     let response  = await callApi(prompt.value, model.value, api_key)
     createResponse(prompt.value, response);
-
 }
 
- function createResponse(prompt, response){
+function createResponse(prompt, response){
 
-   let response_div = document.createElement("article");
-   let response_container = document.getElementById("response_container");
+    let response_div = document.createElement("article");
+    let response_container = document.getElementById("response_container");
 
-   let prompt_para =  createElement_function(prompt, "p");
-   let prompt_title =  createElement_function("Prompt:", "h3");
-   let response_title =  createElement_function("Response:", "h3")
-   let response_para =  createElement_function(response, "p")
+    let prompt_para =  createElement_function(prompt, "p");
+    let prompt_title =  createElement_function("Prompt:", "h3");
+    let response_title =  createElement_function("Response:", "h3")
+    let response_para =  createElement_function(response, "p")
 
-   response_div.append(prompt_title)
-   response_div.append(prompt_para)
-   response_div.append(response_title)
-   response_div.append(response_para)
-   response_container.prepend(response_div);
-   
+    response_div.append(prompt_title)
+    response_div.append(prompt_para)
+    response_div.append(response_title)
+    response_div.append(response_para)
+    response_container.prepend(response_div);
 }
 
 function createElement_function (data, elementType){
@@ -39,8 +37,7 @@ function createElement_function (data, elementType){
     return dom_element;
 };
 
- async function callApi(prompt,model, api_key){
-
+async function callApi(prompt,model, api_key){
     let api_response = "";
     const data = {
         prompt: prompt,
@@ -49,19 +46,19 @@ function createElement_function (data, elementType){
         top_p: 1.0,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
-       };
+    };
         
-       const response = await fetch(`https://api.openai.com/v1/engines/${model}/completions`, {
+    const response = await fetch(`https://api.openai.com/v1/engines/${model}/completions`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${api_key}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${api_key}`,
         },
         body: JSON.stringify(data),
-       }).then(res  => res.json())
+    }).then(res  => res.json())
 
-       api_response = await response.choices[0].text;
-       return api_response;
+    api_response = await response.choices[0].text;
+    return api_response;
 }
 
 async function environmentVariable(){

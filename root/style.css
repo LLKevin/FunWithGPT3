@@ -19,6 +19,7 @@ html{
 #txtprompt{
     height: 30vh;
     font-size: 18px;
+    min-width: 180px;
     width: 50vw;
 }
 #btn_submit{
@@ -28,34 +29,44 @@ html{
     color: black;
     height: 6vh;
     letter-spacing: 0.3em;
-    min-width: 100px;
+    min-width: 180px;
     margin-top: 10px;
     width: 8vw;
 }
-#btn_submit:hover{
-    cursor: pointer;
-    font-style: italic;
-}
+
 #model_wrapper{
     display: flex;
     flex-direction: column;
 }
 #model_wrapper > * {
+    align-self: flex-end;
     margin-top: 20px;
 }
 #model_wrapper select {
-    height: 5vh;
+    background-color: lightblue;
+    border: none;
+    box-shadow: 2px 2px 2px grey;
     font-size: 16px;
+    height: 6vh;
     letter-spacing: 0.1em;
-    min-width: 150px;
+    min-width: 180px;
     text-align: center;
     width: 15vw;
 }
+
+#model_wrapper, #btn_submit{
+    border-radius: 10px;
+    height: 6vh;
+}
+#model_wrapper select:hover, #btn_submit:hover {
+    background-color: #67B7D1;
+    cursor: pointer;
+}
 #response_container article{
     display: flex;
-    flex-direction: column;
     background-color: lightblue;
     border-radius: 10px;
+    flex-direction: column;
     padding: 15px;
     margin: 10px;
     width: 50vw;
