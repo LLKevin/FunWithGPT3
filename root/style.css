@@ -1,7 +1,9 @@
 
 html{
-    background-color: li;
     font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: lightblue;
 }
 
 #top-level-container{
@@ -15,19 +17,21 @@ html{
 #frm_prompt{
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 4px 3px lightgray;
+    padding: 30px;
 }
 #txtprompt{
     height: 30vh;
+    background-color:  #fafafa ;
     font-size: 18px;
     min-width: 180px;
     width: 50vw;
 }
 #btn_submit{
-    align-self: flex-end;
-    background-color:lightblue;
-    border-radius: 10px;
+    background-color: lightblue;
     color: black;
-    height: 6vh;
     letter-spacing: 0.3em;
     min-width: 180px;
     margin-top: 10px;
@@ -39,32 +43,28 @@ html{
     flex-direction: column;
 }
 #model_wrapper > * {
-    align-self: flex-end;
     margin-top: 20px;
 }
 #model_wrapper select {
-    background-color: lightblue;
     border: none;
-    box-shadow: 2px 2px 2px grey;
+    box-shadow: 1px 2px 2px grey;
     font-size: 16px;
-    height: 6vh;
     letter-spacing: 0.1em;
-    min-width: 180px;
-    text-align: center;
-    width: 15vw;
+    width: 50vw;
 }
-
-#model_wrapper, #btn_submit{
-    border-radius: 10px;
-    height: 6vh;
-}
-#model_wrapper select:hover, #btn_submit:hover {
+#btn_submit:hover {
     background-color: #67B7D1;
     cursor: pointer;
 }
+#model_wrapper select, #btn_submit{
+    border-radius: 10px;
+    height: 6vh;
+    min-width: 180px;
+    text-align: center;
+}
 #response_container article{
     display: flex;
-    background-color: lightblue;
+    background-color: #67B7D1;
     border-radius: 10px;
     flex-direction: column;
     padding: 15px;
